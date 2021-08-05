@@ -50,15 +50,23 @@ void main() {
 
 	print("signature");
 	print(base64.encode(signature));
+	print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+	print(signature);
+	print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+
 
 	final ok = rsaVerify(public, Uint8List.fromList(dataToSign.codeUnits), signature);
 
 	print("is valid");
 	print(ok);
+	print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
 	print("public key pem");
-
 	print(CryptoUtils.encodeRSAPublicKeyToPem(public));
+	print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+	print(public.publicExponent);
+	print(public.n);
+	print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 }
 
 Uint8List rsaSign(RSAPrivateKey privateKey, Uint8List dataToSign) {
